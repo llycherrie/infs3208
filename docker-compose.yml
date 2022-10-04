@@ -1,0 +1,63 @@
+version: "3.3"
+
+services:
+        mysql:
+                image: mariadb:latest
+                environment:
+                        MYSQL_ROOT_PASSWORD: MyDBRoot123
+                        MYSQL_DATABASE: cloud_computing
+                        MYSQL_USER: php
+                        MYSQL_PASSWORD: php
+                networks:
+                        - mynet
+                ports:
+                        - "3306:3306"
+
+        myredis:
+                image: redis:latest
+                networks:
+                        - mynet
+                ports:
+                        - "6379:6379"
+
+                volumes: 
+                        - $HOME/cca2/src:/var/www/html
+        myphp:
+                depends_on:
+                        - mysql
+                        - myredis
+                ports:
+                        - "9000"
+                volumes:
+                        - $HOME/cca2/src:/var/www/html
+                networks:
+                        - mynet
+                environment:
+                        privileged: "true"
+                build: $HOME/cca2/src/php
+
+        mynginx:
+                image: nginx:latest
+                ports:
+                        - "8080:80"
+                depends_on:
+                        - myphp
+                networks:
+                        - mynet
+                volumes:
+                        - $HOME/cca2/src:/var/www/html
+                        - $HOME/cca2/src/nginx.ini:/etc/nginx/conf.d/default.conf
+        phpMyAdmin:
+                image: phpmyadmin/phpmyadmin
+                depends_on:
+                        - mysql
+                environment:
+                        PMA_HOST: mysql
+                ports:
+                        - "8082:80"
+                networks:
+                        - mynet
+
+networks:
+        mynet:
+                driver: bridge
