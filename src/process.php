@@ -1,15 +1,13 @@
 <?php
 $servername = "mysql";
-$username = "php";
+$uid = "php";
 $password = "php";
+$dBName = "cloud_computing";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password);
+$conn = mysqli_connect($servername, $uid, $password, $dBName);
 //
 // Check connection
  if (!$conn) {
    die("Connection failed: " . mysqli_connect_error());
    }
-   echo "SQL connected successfully! <br>";
-   echo "Server Info: ". mysqli_get_server_info($conn);
-?>
