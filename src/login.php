@@ -8,40 +8,29 @@ include_once 'header.php';
 
 <div style=" height:600px; margin:30px;">
         <h2>Welcome back! Please login!</h><br>
-
+<section>
 <body>
-<form action="" method="POST">
+<form action="./includes/login.inc.php" method="POST">
 
-                         <input type="text" name="uid" placeholder="Username/Email..."><br>
+                         <input type="text" name="username" placeholder="Username/Email..."><br>
                          <input type="password" name="pwd" placeholder="Password..."><br><br>
                         <input type="submit" name="submit" value = "Submit">
 
+
 </form>
 
-<?php
- include("process.php");
-if ($_REQUEST['submit'])
-        {
-        $name = $_REQUEST['uid'];
-        $pass = $_REQUEST['pwd'];
-        $obj = $conn->query("SELECT * from LoginDetails WHERE Username='$name' and Password='$pass'");
-        echo $obj;
-        echo "123";
 
-        if ($obj->num_rows >0){
-                ?>
-<script type="text/javascript">
-window.location.href = "index.php"
-;
-</script>
 <?php
 
-        exit();
-}
+if (isset($_GET["error"])){
+        if ($_GET["error"] == "emptyinput") {
+                echo"<p>Fill in all the fields!</p>";
 
-else
-  
-  {
-        echo "Your username or password is incorrect, please retry!";
+        }
+        else if ($_GET["error"] == "wronglogin") {
+                echo"<p>Incorrect information, please retry!</p>";
+        }
 }
-}
+?>
+</div>
+</section>
