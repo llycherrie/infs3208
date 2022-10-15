@@ -30,6 +30,9 @@ services:
                         - "9000"
                 volumes:
                         - $HOME/infs3208/src:/var/www/html
+                        - $HOME/infs3208/src/php.ini-development:/usr/local/etc/php/php.ini-development
+                        - $HOME/infs3208/src/php.ini-production:/usr/local/etc/php/php.ini-production
+                        
                 networks:
                         - mynet
                 environment:
