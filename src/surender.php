@@ -1,29 +1,17 @@
+
 <?php
- include_once 'header.php';
+include_once 'header.php';
+
 ?>
 
-
-        <h2>Pet Surrender Form</h>
+<h1> Brisbane Animal Shelter Pet Surrender Form</h1><br>
 
 <!--Second section-->
+ <img src="https://images.wallpaperscraft.com/image/single/dog_cat_kitten_puppy_grass_65389_800x1420.jpg" style="height:600px; margin:30px; float: left;" alt="A pic of dog and cat">
+<div style=" margin:30px;">
+                        <h2>Pet Detail</h><br>
 
-        <div style=" height:600px; margin:30px;">
-                <form action="include/surrender.inc.php" method="post">
-                        <h2>Owner Detail</h>
-
-                         <label for="fname">First name:</label><br>
-                        <input type="text" id="fname" name="fname"><br>
-                        <label for="lname">Last name:</label><br>
-                        <input type="text" id="lname" name="lname">
-                        <label for="username">Username:</label><br>
-                        <input type="text" name="username"><br>
-                        <label for="address">Address:</label><br>
-                        <input type="text" name="address"><br>
-                        <label for="contact">Contact Number:</label><br>
-                        <input type="text" name="contact"><br>
-
-
-                        <h2>Pet Detail</h>
+</div>
                         <label for="pet">Type of pet surrendering:</label><br>
                         <input type="text" name="pet"><br>
                         <label for="petname">Name of the pet:</label><br>
@@ -33,9 +21,9 @@
                         <label for="petage">Age of pet surrendering:</label><br>
                         <input type="text" name="petage"><br>
                         <label for="petgender">Gender of pet surrendering:</label><br>
-                        <input type="text" name="petgender"><br>
+                        <input type="text" name="petgender"><br><br>
 
-                        <button type="submit" name="submit">Sign Up</button>
+                        <button type="submit" name="submit">Submit Form</button>
 
 
 </form>
@@ -44,7 +32,7 @@
 
 if (isset($_GET["error"])){
         if ($_GET["error"] == "none") {
-                echo"<p>You have signed up! You can login now!</p>";
+                echo"<p>We have received your Pet surrender form, you will be contacted shortly!</p>";
 
         }
         else {
