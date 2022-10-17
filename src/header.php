@@ -18,17 +18,15 @@ session_start();
         <body>
                 <header>
         <a href="#" class="logo">Brisbane Animal Shelter</a>
-        <nav>
+                        <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="adoption.php">Adoption</a></li>
-                <li><a href="#">Donation</a></li>
 
                 <?php
                         if (isset($_SESSION["userName"])){
-                                echo "<li><a href='profile.php'>Profile</a></li>";
-                                echo "<li><a href='includes/logout.inc.php'>Logout</a></li>";
-
+                                echo "<li><a href='surender.php'>Pet Surrender</a></li>";
+                                echo "<li><a href='include/logout.inc.php'>Logout</a></li>";
                         } 
                         else {
                                 echo " <li><a href='register.php'>Register</a></li>";
