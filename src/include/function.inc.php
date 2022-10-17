@@ -156,3 +156,31 @@ function loginUser($conn, $username, $pwd){
 
 
 }
+
+function petSurrender($conn, $username,$lname, $fname,$address, $contact, $pettype, $petname, $petbreed, $petage, $petgender ){
+
+
+        $sql = " INSERT INTO PetSurrender (fname, lname, address, Username, contact, pet_type, pet_name, pet_age, pet_gender, pet_breed) VALUES (?,?,?,?,?,?,?,?,?,?);";
+        $stmt = $conn->stmt_init();
+        $stmt->prepare($sql);
+
+
+        if(!$stmt->prepare($sql)){
+  die($conn->error);
+}
+/**
+        if (!mysqli_stmt_prepare($stmt, $sql)){
+
+                header("location: ../register.php?error=stmtfailed");
+                exit();
+        }
+        **/
+
+
+        $stmt->bind_param("ssssssssss",$lname, $fname, $address,  $username, $contact, $pettype, $petname,$petage, $petgender, $petbreed);
+        $stmt->execute();
+        $stmt->store_result();
+        mysqli_stmt_close($stmt);
+        header("location: ../surender.php?error=none");
+        exit();
+}
