@@ -10,7 +10,7 @@ include_once 'header.php';
         <h2>Welcome back! Please login!</h><br>
 <section>
 <body>
-<form action="./includes/login.inc.php" method="POST">
+<form action="./include/login.inc.php" method="POST">
 
                          <input type="text" name="username" placeholder="Username/Email..."><br>
                          <input type="password" name="pwd" placeholder="Password..."><br><br>
