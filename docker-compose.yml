@@ -23,6 +23,7 @@ services:
                 volumes: 
                         - $HOME/infs3208/src:/var/www/html
         myphp:
+                image: php:7.4-fpm 
                 depends_on:
                         - mysql
                         - myredis
@@ -32,7 +33,7 @@ services:
                         - $HOME/infs3208/src:/var/www/html
                         - $HOME/infs3208/src/php.ini-development:/usr/local/etc/php/php.ini-development
                         - $HOME/infs3208/src/php.ini-production:/usr/local/etc/php/php.ini-production
-                        
+
                 networks:
                         - mynet
                 environment:
@@ -63,4 +64,4 @@ services:
 
 networks:
         mynet:
-                driver: bridge
+                driver: overlay
