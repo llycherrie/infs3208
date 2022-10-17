@@ -13,14 +13,6 @@ include_once 'header.php';
 
 </div>
 <div class="row">
-  <div class="column">
-<a href="cat1.php">
-  <figure>
-    <img src="https://www.awlqld.com.au/wp-content/uploads/2022/10/Charity-451695-200x191.jpg" alt="demo image" />
-    <figcaption>CHARITY<br><br>Breed: Domestic Medium Hair<br> Gender: Female<br> Age: 2 Years<br>Location: Gold Coast, Rehoming Centre </figcaption>
-  </figure>
-</a>
-</div>
 
  <div class="column">
 <a href="cat2.php">
